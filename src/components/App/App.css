@@ -1,0 +1,22 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.app-forecast-visualized {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0px;
+}
+
+.app-forecast-visualized > div {
+    flex-basis: 50%;
+}
+
+@media all and (max-width:768px) {
+    .app-forecast-visualized{
+        flex-direction: column;
+    } 
+}

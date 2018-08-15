@@ -1,0 +1,58 @@
+.forecast-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: white;
+    margin-top: 15px;
+}
+
+.forecast {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.single-forecast-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 1rem;
+    flex:30%;
+    padding: 4px;
+    margin: 4px;
+    border-radius: 2px;
+}
+
+.forecast-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.single-forecast-item>div,.forecast-info-container>div {
+    padding: 4px;
+}
+
+.forecast-temp-text {
+    align-self: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.forecast-weather-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: space-around;
+    font-size: 3.2rem;
+}
+
+.forecast-day,.forecast-desc {
+    align-self: center;
+    text-transform:capitalize;
+}
+
+@media all and (max-width:480px) {
+    .single-forecast-item{
+        flex: 50%;
+    }
+}
