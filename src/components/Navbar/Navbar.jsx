@@ -4,7 +4,7 @@ import Search from '../Search';
 import Unit from '../Unit';
 
 class Navbar extends React.Component {
-  sendNewUnitToParent = (newUnit) => {
+  LiftUnitToApp = (newUnit) => {
     this.props.changeUnit(newUnit);
   }
   
@@ -14,7 +14,7 @@ class Navbar extends React.Component {
         <ul className="navbar-container">
           <li className="navbar-list-item">
             <Search />
-            <Unit />
+            <Unit unit={this.props.unit} liftUnit={this.LiftUnitToApp}/>
           </li>
           <li className="navbar-list-item">
           <div className="date-container">
@@ -25,9 +25,6 @@ class Navbar extends React.Component {
           <li className="navbar-list-item city-name">
             <span className="">Today in New York, US</span>
           </li>
-          {/*<li className="navbar-list-item">
-            <Unit />
-    </li>*/}
         </ul>
       </nav>
     );
