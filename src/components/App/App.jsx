@@ -10,22 +10,48 @@ class App extends React.Component {
     super(props);
     this.state = {
       unit: 'C',
-      queryString: ''
+      queryString: '',
+      latLng: [],
+      navbarData: {},
+      todayComponentData: {},
+      listComponentData: [],
+      graphComponentData: []
     };
   }
+
   onUnitChange = (newUnit) => {
     this.setState({
       unit: newUnit
     }, this.fetchWithStateChange)
   }
-  fetchWithStateChange = () => {
-    // Fetch data for new unit
-  }
+
   onSearch = (query) => {
     this.setState({
       queryString: query
     }, this.fetchWithStateChange)
   }
+
+  componentDidMount() {
+    const geolocation = navigator.geolocation;
+    if (geolocation) {
+      const permissionGranted = (position) => {
+        this.setState({
+          latLng: [position.coords.latitude, position.coords.longitude]
+        }, this.fetchWithStateChange);
+      }
+      const permissionDenied = () => {
+        console.log('Permission Denied');
+      }
+      geolocation.getCurrentPosition(permissionGranted, permissionDenied);
+    } else {
+      console.log('GeoLocation not supported in your browser.');
+    }
+  }
+
+  fetchWithStateChange = () => {
+    
+  }
+  
   render() {
     return (
       <div className="app-container">
