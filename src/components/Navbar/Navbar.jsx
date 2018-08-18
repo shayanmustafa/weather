@@ -7,13 +7,17 @@ class Navbar extends React.Component {
   LiftUnitToApp = (newUnit) => {
     this.props.changeUnit(newUnit);
   }
+
+  sendLocationToApp = (query) => {
+    this.props.searchLocatoin(query);
+  }
   
   render() {
     return (
       <nav>
         <ul className="navbar-container">
           <li className="navbar-list-item">
-            <Search />
+            <Search searchSubmit={this.sendLocationToApp}/>
             <Unit unit={this.props.unit} liftUnit={this.LiftUnitToApp}/>
           </li>
           <li className="navbar-list-item">

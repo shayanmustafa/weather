@@ -17,6 +17,7 @@ class Search extends React.Component {
   handleSearch = (e) => {
     e.preventDefault();
     console.log('Fetch weather data for:', this.state.queryString);
+    this.props.searchSubmit(this.state.queryString);
   }
   
   render() {
